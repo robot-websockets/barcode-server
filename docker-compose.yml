@@ -1,0 +1,8 @@
+version: '2.1'
+
+services:
+  barcode-erver:
+    image: barcode-erver
+    build: .
+    ports:
+      - 3000:3000
