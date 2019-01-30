@@ -1,1 +1,4 @@
-imutils
+flask
+flask_cors
+requests
+pyzbar

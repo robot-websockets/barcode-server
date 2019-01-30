@@ -8,8 +8,8 @@ FROM python:alpine
 # If you prefer miniconda:
 #FROM continuumio/miniconda3
 
-LABEL Name=barcode-erver Version=0.0.1
-EXPOSE 3000
+LABEL Name=barcode-server Version=0.9.0
+EXPOSE 5003
 
 
 WORKDIR /app
@@ -17,7 +17,7 @@ ADD . /app
 
 # Using pip:
 RUN python3 -m pip install -r requirements.txt
-CMD ["python3", "-m", "barcode-erver"]
+CMD ["python3", "server.py"]
 
 # Using pipenv:
 #RUN python3 -m pip install pipenv

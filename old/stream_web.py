@@ -15,7 +15,7 @@ args = vars(ap.parse_args())
 print("[INFO] starting video stream...")
 # vs = VideoStream(src=0).start()
 # vs = VideoStream(usePiCamera=True).start()
-vs = cv2.VideoCapture("http://192.168.0.4:8081/")
+vs = cv2.VideoCapture("http://192.168.55.12:8081/")
 time.sleep(2.0)
 
 # open the output CSV file for writing and initialize the set of
