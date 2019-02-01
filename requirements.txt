@@ -1,4 +1,4 @@
-flask
-flask_cors
-requests
-pyzbar
+Flask==1.0.2
+Flask-Cors==3.0.7
+requests==2.21.0
+pyzbar==0.1.7
