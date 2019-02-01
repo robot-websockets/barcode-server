@@ -1,0 +1,23 @@
+{
+  "name": "barcode-server",
+  "version": "1.0.0",
+  "description": "Read a barcode from a video feed and post a json object to a server.",
+  "main": "server.py",
+  "scripts": {
+    "test": "none"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robot-websockets/barcode-server.git"
+  },
+  "keywords": [
+    "websocket",
+    "barcode"
+  ],
+  "author": "Phil Stenning",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/robot-websockets/barcode-server/issues"
+  },
+  "homepage": "https://github.com/robot-websockets/barcode-server#readme"
+}
