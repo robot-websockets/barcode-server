@@ -28,10 +28,13 @@ pip3 install -r requirements.txt
 
 ## Running the app
 
-Now run
+Now run where:
+
+-W is the ip of the main websocket server
+-V is the ip of the main video feed.
 
 ```python
-python3 ./server.py
+python3 ./server.py -W "192.168.55.13:5001" -V "192.168.255.12:8081"
 ```
 
 You can now view it in the dashboard app by adding a new feed in 'Settings'

@@ -6,6 +6,8 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)  # needed for cross origin posts.
 
+print('\n barcode server starting...\n')
+
 
 @app.route('/')
 def index():
