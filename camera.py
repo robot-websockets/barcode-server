@@ -6,8 +6,9 @@ import time
 import requests
 import json
 
-local_server_address = '127.0.0.0:5001'
-video_server_address = '192.168.55.12:8081'
+# local_server_address = '127.0.0.0:5001'
+# video_server_address = '192.168.0.30:8081'
+# video_server_address = '192.168.55.12:8081'
 
 
 parser = argparse.ArgumentParser()
@@ -16,11 +17,11 @@ parser.add_argument('-V', '--video_server')
 
 args = parser.parse_args()
 
-web_socket_server = "192.168.55.18:5001"
+web_socket_server = "192.168.0.10:5001"
 if (args.websocket_server):
     web_socket_server = args.websocket_server
 
-video_server = "192.168.55.13:8081"
+video_server = "192.168.0.30:8081"
 if (args.video_server):
     video_server = args.video_server
 
@@ -49,13 +50,25 @@ class VideoCamera():
         barcodes = pyzbar.decode(image)
 
         for barcode in barcodes:
+            # draw the bounding rectangle
             (x, y, w, h) = barcode.rect
             cv2.rectangle(image, (x, y), (x + w, y + h), (0, 0, 255), 2)
             barcodeData = barcode.data.decode("utf-8")
             if (barcodeData != self.barcodeText):
                 print(barcodeData)
-                self.barcodeText = barcodeData
-                j = json.loads(barcodeData)
+                data = float(barcodeData)
+                speed = int(data)
+                dir = int(float(data) - speed) * 10
+                direction = 'forwards'
+                if int(dir) == 2:
+                    direction = 'backwards'
+                # self.barcodeText = barcodeData
+                # j = json.loads(barcodeData)
+                js = '{' + \
+                    ' "direction":"{}", "speed":{}'.format(
+                        direction, speed) + '}'
+                j = json.loads(js)
+
                 print(j)
                 try:
                     r = requests.post(
